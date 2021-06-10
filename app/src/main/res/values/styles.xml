@@ -14,4 +14,20 @@
     <style name="ButtonStyleMainActivity">
         <item name="android:backgroundTint">@color/button_main_activity_cream</item>
     </style>
+
+    <style name="TitleStyleDialogFragmentSpacesSetting">
+        <item name="android:text">@string/dialog_fragment_title_text</item>
+        <item name="android:textSize">@dimen/text_dialog_fragment_spaces_setting_text_size</item>
+        <item name="android:layout_marginTop">@dimen/edit_text_dialog_fragment_spaces_setting_margin_top</item>
+    </style>
+
+    <style name="InputStyleDialogFragmentSpacesSetting">
+        <item name="android:inputType">number</item>
+        <item name="android:layout_margin">@dimen/text_edit_dialog_fragment_spaces_setting_margin</item>
+    </style>
+
+    <style name="ButtonStyleDialogFragmentSpacesSetting">
+        <item name="android:layout_marginBottom">@dimen/button_dialog_fragment_spaces_setting_margin_bottom</item>
+        <item name="android:text">@string/dialog_fragment_confirm_button</item>
+    </style>
 </resources>

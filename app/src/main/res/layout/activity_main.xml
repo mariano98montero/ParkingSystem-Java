@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wallpaper_main_screen"
-    tools:context=".MainActivity">
-
+    tools:context=".activities.MainActivity">
     <TextView
         android:id="@+id/text_main_activity_title"
         style="@style/TitleStyleMainActivity"
@@ -15,7 +14,6 @@
         android:layout_marginTop="@dimen/text_main_activity_margin_top"
         android:text="@string/main_activity_text_title"
         app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/button_main_activity_select_parking_space"
         style="@style/ButtonStyleMainActivity"
@@ -26,5 +24,4 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_main_activity_title" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

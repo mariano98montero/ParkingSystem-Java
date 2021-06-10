@@ -2,4 +2,8 @@
     <string name="app_name">FreeSpot</string>
     <string name="main_activity_text_title">Welcome to Free Spot!</string>
     <string name="main_activity_button_set_size">Select parking spaces</string>
+    <string name="main_activity_toast_set_parking_lots">%1$s free spots.</string>
+    <string name="dialog_fragment_toast_invalid_value">please insert a valid number</string>
+    <string name="dialog_fragment_confirm_button">Confirm</string>
+    <string name="dialog_fragment_title_text">Set spaces available:</string>
 </resources>

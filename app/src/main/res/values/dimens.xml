@@ -3,4 +3,10 @@
     <dimen name="text_main_activity_margin_start_end">15dp</dimen>
     <dimen name="text_main_activity_margin_top">20dp</dimen>
     <dimen name="text_main_activity_text_size">35sp</dimen>
+    <dimen name="edit_text_dialog_fragment_spaces_setting_margin_top">25dp</dimen>
+    <dimen name="text_dialog_fragment_spaces_setting_text_size">20sp</dimen>
+    <dimen name="text_dialog_fragment_spaces_setting_margin_top">20dp</dimen>
+    <dimen name="text_edit_dialog_fragment_spaces_setting_width">160dp</dimen>
+    <dimen name="text_edit_dialog_fragment_spaces_setting_margin">35dp</dimen>
+    <dimen name="button_dialog_fragment_spaces_setting_margin_bottom">20dp</dimen>
 </resources>
