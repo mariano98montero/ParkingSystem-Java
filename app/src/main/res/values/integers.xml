@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="text_main_activity_shadow_dx">4</integer>
+    <integer name="text_main_activity_shadow_dy">4</integer>
+    <integer name="text_main_activity_shadow_radius">6</integer>
+</resources>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="TitleStyleMainActivity">
+        <item name="android:shadowColor">@color/black</item>
+        <item name="android:shadowDx">@integer/text_main_activity_shadow_dx</item>
+        <item name="android:shadowDy">@integer/text_main_activity_shadow_dy</item>
+        <item name="android:shadowRadius">@integer/text_main_activity_shadow_radius</item>
+        <item name="android:textColor">@color/text_main_activity_title_cream</item>
+        <item name="android:textSize">@dimen/text_main_activity_text_size</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
+    <style name="ButtonStyleMainActivity">
+        <item name="android:backgroundTint">@color/button_main_activity_cream</item>
+    </style>
+</resources>
