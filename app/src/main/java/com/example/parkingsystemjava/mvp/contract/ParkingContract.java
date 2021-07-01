@@ -18,9 +18,7 @@ public interface ParkingContract {
 
     interface MainActivityView {
         void showDialogFragment(ListenerDialogFragment listenerDialogFragment);
-
         void showReservationActivity();
-
         void showParkingLotsAvailable(String parkingLots);
     }
 }
