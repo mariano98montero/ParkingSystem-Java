@@ -2,7 +2,6 @@ package com.example.parkingsystemjava.mvp.view;
 
 import android.content.Context;
 import android.widget.Toast;
-
 import com.example.parkingsystemjava.R;
 import com.example.parkingsystemjava.fragments.SpacesSettingDialogFragment;
 import com.example.parkingsystemjava.listener.ListenerDialogFragment;
@@ -18,7 +17,7 @@ public class ParkingSpacesView extends FragmentView implements ParkingSpacesCont
     @Override
     public void showParkingLotsAvailable(String freeSpaces, ListenerDialogFragment listenerDialogFragment) {
         SpacesSettingDialogFragment fragment = (SpacesSettingDialogFragment) getFragment();
-        if (fragment != null){
+        if (fragment != null) {
             fragment.dismiss();
         }
         listenerDialogFragment.listenFreeSpaces(freeSpaces);
@@ -27,7 +26,7 @@ public class ParkingSpacesView extends FragmentView implements ParkingSpacesCont
     @Override
     public void showInvalidValue() {
         Context context = getContext();
-        if (context !=null){
+        if (context != null) {
             Toast.makeText(context, context.getString(R.string.dialog_fragment_toast_invalid_value), Toast.LENGTH_LONG).show();
         }
     }

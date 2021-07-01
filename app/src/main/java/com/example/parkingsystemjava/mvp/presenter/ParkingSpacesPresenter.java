@@ -13,9 +13,9 @@ public class ParkingSpacesPresenter implements ParkingSpacesContract.ParkingSpac
 
     @Override
     public void onButtonDialogFragmentSpacesSettingConfirmationPressed(String freeSpaces, ListenerDialogFragment listenerDialogFragment) {
-        if (freeSpaces.isEmpty()){
+        if (freeSpaces.isEmpty()) {
             view.showInvalidValue();
-        }else{
+        } else {
             view.showParkingLotsAvailable(freeSpaces, listenerDialogFragment);
         }
     }

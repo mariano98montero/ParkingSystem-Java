@@ -18,6 +18,11 @@ public class ParkingPresenter implements ParkingContract.MainActivityPresenter {
     }
 
     @Override
+    public void onReservationButtonPressed() {
+        view.showReservationActivity();
+    }
+
+    @Override
     public void setParkingSpacesAvailable(String spacesAvailable) {
         model.setParkingLots(spacesAvailable);
         view.showParkingLotsAvailable(model.getParkingLots());

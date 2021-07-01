@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="text_main_activity_title_cream">#a9bd97</color>
     <color name="button_main_activity_cream">#a9bd97</color>
+    <color name="background_reservation_activity_salmon">#cfe69a</color>
 </resources>

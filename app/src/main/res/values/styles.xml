@@ -11,12 +11,30 @@
         <item name="android:textAlignment">center</item>
     </style>
 
-    <style name="ButtonStyleMainActivity">
-        <item name="android:backgroundTint">@color/button_main_activity_cream</item>
+    <style name="InputStyleDatePickerReservationActivity">
+        <item name="android:inputType">date</item>
+        <item name="android:focusable">false</item>
+        <item name="android:textSize">@dimen/edit_text_reservation_activity_entry_date_text_size</item>
+        <item name="android:clickable">true</item>
+        <item name="android:maxLines">1</item>
+    </style>
+
+    <style name="InputStyleReservationActivityParkingNumber">
+        <item name="android:layout_marginTop">@dimen/edit_text_reservation_activity_main_margin_top</item>
+        <item name="android:textSize">@dimen/edit_text_reservation_activity_parking_number_text_size</item>
+    </style>
+
+    <style name="InputStyleReservationActivityKeyCode">
+        <item name="android:textSize">@dimen/edit_text_reservation_activity_parking_code_text_size</item>
+        <item name="android:layout_marginTop">@dimen/edit_text_reservation_activity_main_margin_top</item>
+    </style>
+
+    <style name="FromToDateReservationActivity">
+        <item name="android:textSize">@dimen/text_reservation_activity_from_date_text_size</item>
+        <item name="android:layout_marginTop">@dimen/text_reservation_activity_from_date_margin_top</item>
     </style>
 
     <style name="TitleStyleDialogFragmentSpacesSetting">
-        <item name="android:text">@string/dialog_fragment_title_text</item>
         <item name="android:textSize">@dimen/text_dialog_fragment_spaces_setting_text_size</item>
         <item name="android:layout_marginTop">@dimen/edit_text_dialog_fragment_spaces_setting_margin_top</item>
     </style>

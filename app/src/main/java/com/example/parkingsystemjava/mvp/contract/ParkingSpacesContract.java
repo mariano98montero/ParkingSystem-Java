@@ -10,7 +10,6 @@ public interface ParkingSpacesContract {
 
     interface ParkingSpacesDialogFragmentView {
         void showParkingLotsAvailable(String parkingLots, ListenerDialogFragment listenerDialogFragment);
-
         void showInvalidValue();
     }
 }

@@ -12,13 +12,13 @@ public interface ParkingContract {
 
     interface MainActivityPresenter {
         void onSetParkingButtonPressed(ListenerDialogFragment listenerDialogFragment);
-
+        void onReservationButtonPressed();
         void setParkingSpacesAvailable(String spacesAvailable);
     }
 
     interface MainActivityView {
         void showDialogFragment(ListenerDialogFragment listenerDialogFragment);
-
+        void showReservationActivity();
         void showParkingLotsAvailable(String parkingLots);
     }
 }

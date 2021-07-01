@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_reservation_activity_salmon">
+
+    <TextView
+        android:id="@+id/text_view_reservation_activity_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reservation_activity_text_title"
+        android:textSize="@dimen/text_reservation_activity_title_text_size"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/text_view_reservation_activity_from_date"
+        style="@style/FromToDateReservationActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reservation_activity_text_from_date"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/edit_text_reservation_activity_entry"
+        app:layout_constraintTop_toBottomOf="@id/text_view_reservation_activity_title" />
+
+    <EditText
+        android:id="@+id/edit_text_reservation_activity_entry"
+        style="@style/InputStyleDatePickerReservationActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/reservation_activity_entry_hint"
+        app:layout_constraintBottom_toBottomOf="@id/text_view_reservation_activity_from_date"
+        app:layout_constraintLeft_toRightOf="@id/text_view_reservation_activity_from_date"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_reservation_activity_title"
+        app:layout_constraintTop_toTopOf="@id/text_view_reservation_activity_from_date" />
+
+    <TextView
+        android:id="@+id/text_view_reservation_activity_to_date"
+        style="@style/FromToDateReservationActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/reservation_activity_text_to_date"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/edit_text_reservation_activity_exit"
+        app:layout_constraintTop_toBottomOf="@id/text_view_reservation_activity_from_date" />
+
+    <EditText
+        android:id="@+id/edit_text_reservation_activity_exit"
+        style="@style/InputStyleDatePickerReservationActivity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/reservation_activity_exit_hint"
+        app:layout_constraintBottom_toBottomOf="@id/text_view_reservation_activity_to_date"
+        app:layout_constraintLeft_toRightOf="@id/text_view_reservation_activity_to_date"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_reservation_activity_from_date"
+        app:layout_constraintTop_toTopOf="@id/text_view_reservation_activity_to_date" />
+
+    <EditText
+        android:id="@+id/edit_text_reservation_activity_parking_number"
+        style="@style/InputStyleReservationActivityParkingNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/reservation_activity_parking_number_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_reservation_activity_exit" />
+
+    <EditText
+        android:id="@+id/edit_text_reservation_activity_code"
+        style="@style/InputStyleReservationActivityKeyCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:hint="@string/reservation_activity_parking_code_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_reservation_activity_parking_number" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/button_reservation_fragment_save_margin_top"
+        android:text="@string/reservation_activity_button_save_text"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/edit_text_reservation_activity_code" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
