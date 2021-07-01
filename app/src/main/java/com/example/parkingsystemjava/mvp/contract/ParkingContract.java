@@ -12,9 +12,7 @@ public interface ParkingContract {
 
     interface MainActivityPresenter {
         void onSetParkingButtonPressed(ListenerDialogFragment listenerDialogFragment);
-
         void onReservationButtonPressed();
-
         void setParkingSpacesAvailable(String spacesAvailable);
     }
 

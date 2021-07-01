@@ -3,7 +3,18 @@
     <string name="main_activity_text_title">Welcome to Free Spot!</string>
     <string name="main_activity_button_set_size">Select parking spaces</string>
     <string name="main_activity_toast_set_parking_lots">%1$s free spots.</string>
+    <string name="main_activity_button_make_reservation">Make a reservation</string>
     <string name="dialog_fragment_toast_invalid_value">please insert a valid number</string>
     <string name="dialog_fragment_confirm_button">Confirm</string>
     <string name="dialog_fragment_title_text">Set spaces available:</string>
+    <string name="reservation_activity_text_title">Your reservation</string>
+    <string name="reservation_activity_text_from_date">from</string>
+    <string name="reservation_activity_entry_hint">Select entry date</string>
+    <string name="reservation_activity_text_to_date">to</string>
+    <string name="reservation_activity_exit_hint">Select exit date</string>
+    <string name="reservation_activity_parking_number_hint">Insert parking number</string>
+    <string name="reservation_activity_parking_code_hint">Insert your key code</string>
+    <string name="reservation_activity_button_save_text">Save</string>
+    <string name="dialog_fragment_date_picker_text_cancel">Cancel</string>
+    <string name="dialog_fragment_date_picker_text_confirm">Confirm</string>
 </resources>
