@@ -3,18 +3,52 @@ package com.example.parkingsystemjava.mvp.model;
 import com.example.parkingsystemjava.database.ReservationDatabase;
 import com.example.parkingsystemjava.entity.Reservation;
 import com.example.parkingsystemjava.mvp.contract.ParkingReservationContract;
+import com.example.parkingsystemjava.utils.Constants;
+import com.example.parkingsystemjava.utils.ReservationErrorCodes;
+import java.util.ArrayList;
+import java.util.Calendar;
 
 public class ParkingReservationModel implements ParkingReservationContract.ParkingReservationModel {
 
     private final ReservationDatabase database = ReservationDatabase.getInstance();
-    private final Reservation reservation;
-
-    public ParkingReservationModel() {
-        this.reservation = new Reservation();
-    }
 
     @Override
     public void addReservation(Reservation reservation, int parkingLot) {
         database.addReservation(reservation, parkingLot);
+    }
+
+    @Override
+    public ReservationErrorCodes validateReservation(Reservation reservation, int parkingLot) {
+        if (reservation.getEntryDate() == null) return ReservationErrorCodes.MISSING_ENTRY;
+        if (reservation.getExitDate() == null) return ReservationErrorCodes.MISSING_EXIT;
+        if (reservation.getKeyCode().isEmpty()) return ReservationErrorCodes.MISSING_KEYCODE;
+        if (parkingLot < Constants.ZERO || parkingLot > Integer.parseInt(database.getParkingLots()))
+            return ReservationErrorCodes.WRONG_PARKING_LOT;
+        if (comprobateOverlapping(reservation, parkingLot)) return ReservationErrorCodes.RESERVATION_OVERLAP;
+        else return ReservationErrorCodes.OK;
+    }
+
+    private boolean comprobateOverlapping(Reservation reservation, int parkingLot) {
+        ArrayList<Reservation> reservations = database.getReservations(parkingLot);
+        Calendar reservationEntryDate = reservation.getEntryDate();
+        Calendar reservationExitDate = reservation.getExitDate();
+        boolean isOverlapping = false;
+        int i = Constants.ZERO;
+        if (reservations != null && reservations.size() > Constants.ZERO) {
+            while (!isOverlapping && i < reservations.size()) {
+                if (reservationEntryDate.before(reservations.get(i).getEntryDate()) &&
+                        reservationExitDate.after(reservations.get(i).getEntryDate())) {
+                    isOverlapping = true;
+                } else if (reservationEntryDate.before(reservations.get(i).getExitDate()) &&
+                        reservationExitDate.after(reservations.get(i).getExitDate())) {
+                    isOverlapping = true;
+                } else if (reservationEntryDate.after(reservations.get(i).getEntryDate()) &&
+                        reservationExitDate.before(reservations.get(i).getExitDate())) {
+                    isOverlapping = true;
+                }
+                i++;
+            }
+        }
+        return isOverlapping;
     }
 }

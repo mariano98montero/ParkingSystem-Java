@@ -10,10 +10,9 @@ import com.example.parkingsystemjava.listener.ListenerDateTime;
 import com.example.parkingsystemjava.mvp.contract.ParkingDatePickerContract;
 import com.example.parkingsystemjava.mvp.presenter.ParkingDatePickerPresenter;
 import com.example.parkingsystemjava.mvp.view.ParkingDatePickerView;
+import com.example.parkingsystemjava.utils.Constants;
 
 public class DateReservationDialogFragment extends DialogFragment {
-
-    private static final String LISTENER_DATE_PICKER_KEY = "LISTENER_DATE_PICKER_KEY";
 
     private DialogFragmentDatePickerBinding binding;
     private ParkingDatePickerContract.ParkingDatePickerPresenter presenter;
@@ -22,9 +21,9 @@ public class DateReservationDialogFragment extends DialogFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        presenter = new ParkingDatePickerPresenter(new ParkingDatePickerView(this, binding));
+        presenter = new ParkingDatePickerPresenter(new ParkingDatePickerView(this, binding), getArguments().getBoolean(Constants.DATE_SELECTOR_BOOLEAN));
 
-        listenerDateTime = (ListenerDateTime) getArguments().getSerializable(LISTENER_DATE_PICKER_KEY);
+        listenerDateTime = (ListenerDateTime) getArguments().getSerializable(Constants.LISTENER_DATE_PICKER_KEY);
         setListeners();
     }
 
@@ -35,10 +34,11 @@ public class DateReservationDialogFragment extends DialogFragment {
         return binding.getRoot();
     }
 
-    public static DateReservationDialogFragment newInstance(ListenerDateTime listenerDateTime) {
+    public static DateReservationDialogFragment newInstance(ListenerDateTime listenerDateTime, boolean dateSelector) {
         DateReservationDialogFragment entryReservationDialogFragment = new DateReservationDialogFragment();
         Bundle bundle = new Bundle();
-        bundle.putSerializable(LISTENER_DATE_PICKER_KEY, listenerDateTime);
+        bundle.putBoolean(Constants.DATE_SELECTOR_BOOLEAN, dateSelector);
+        bundle.putSerializable(Constants.LISTENER_DATE_PICKER_KEY, listenerDateTime);
         entryReservationDialogFragment.setArguments(bundle);
         return entryReservationDialogFragment;
     }
