@@ -6,7 +6,6 @@ public interface ParkingContract {
 
     interface MainActivityModel {
         void setParkingLots(String parkingLotsAvailable);
-
         String getParkingLots();
     }
 

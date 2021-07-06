@@ -1,15 +1,24 @@
 package com.example.parkingsystemjava.mvp.contract;
 
+import com.example.parkingsystemjava.entity.Reservation;
+import com.example.parkingsystemjava.listener.ListenerDateTime;
+import java.util.Calendar;
+
 public interface ParkingReservationContract {
 
-    interface ReservationActivityPresenter {
-        void showDatePicker();
+    interface ParkingReservationPresenter {
+        void showDatePicker(ListenerDateTime listenerDateTime);
+        void addReservation(Reservation reservation, int parkingLot);
+        void setEntryExitDate(Calendar entryExitDate);
     }
 
-    interface ReservationActivityView {
-        void showEntryDatePicker();
+    interface ParkingReservationView {
+        void showDatePicker(ListenerDateTime listenerDateTime);
+        void showDateSelected(String date);
+        void showConfirmationMessage(int parkingLot);
     }
 
-    interface ReservationActivityModel {
+    interface ParkingReservationModel {
+        void addReservation(Reservation reservation, int parkingLot);
     }
 }

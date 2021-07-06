@@ -1,7 +1,8 @@
 package com.example.parkingsystemjava.activities;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import androidx.appcompat.app.AppCompatActivity;
+import com.example.parkingsystemjava.database.ReservationDatabase;
 import com.example.parkingsystemjava.databinding.ActivityMainBinding;
 import com.example.parkingsystemjava.listener.ListenerDialogFragment;
 import com.example.parkingsystemjava.mvp.contract.ParkingContract;
@@ -20,7 +21,7 @@ public class MainActivity extends AppCompatActivity implements ListenerDialogFra
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
-        presenter = new ParkingPresenter(new ParkingModel(), new ParkingView(this));
+        presenter = new ParkingPresenter(new ParkingModel(ReservationDatabase.getInstance()), new ParkingView(this));
 
         setListeners();
     }
