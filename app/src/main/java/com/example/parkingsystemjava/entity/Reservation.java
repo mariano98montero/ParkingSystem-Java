@@ -1,31 +1,46 @@
 package com.example.parkingsystemjava.entity;
 
+import com.example.parkingsystemjava.utils.DateUtils;
+import java.util.Calendar;
+
 public class Reservation {
 
-    private static final String EMPTY_STRING = "";
-
-    private String entryDate;
-    private String exitDate;
+    private Calendar entryDate;
+    private Calendar exitDate;
     private String keyCode;
 
     public Reservation() {
-        this.entryDate = EMPTY_STRING;
-        this.exitDate = EMPTY_STRING;
+        this.entryDate = null;
+        this.exitDate = null;
+    }
+
+    public Reservation(String entryDate, String exitDate, String keyCode) {
+        this.entryDate = DateUtils.convertToCalendar(entryDate);
+        this.exitDate = DateUtils.convertToCalendar(exitDate);
+        this.keyCode = keyCode;
     }
 
     public void setEntryDate(String entryDate) {
-        this.entryDate = entryDate;
+        this.entryDate = DateUtils.convertToCalendar(entryDate);
     }
 
     public void setExitDate(String exitDate) {
-        this.exitDate = exitDate;
+        this.exitDate = DateUtils.convertToCalendar(exitDate);
     }
 
     public void setKeyCode(String keyCode) {
         this.keyCode = keyCode;
     }
 
-    public String getEntryDate() {
+    public Calendar getEntryDate() {
         return entryDate;
+    }
+
+    public Calendar getExitDate() {
+        return exitDate;
+    }
+
+    public String getKeyCode() {
+        return keyCode;
     }
 }

@@ -17,5 +17,10 @@
     <string name="reservation_activity_button_save_text">Save</string>
     <string name="dialog_fragment_date_picker_text_cancel">Cancel</string>
     <string name="dialog_fragment_date_picker_text_confirm">Confirm</string>
-    <string name="reservation_activity_text_confirmation_message">Your reservation at %1$s has been confirmed</string>
+    <string name="reservation_activity_text_confirmation_message">Your reservation has been confirmed successfully!</string>
+    <string name="reservation_activity_text_entry_error_message">Please select an entry date!</string>
+    <string name="reservation_activity_text_exit_error_message">Please select an exit date!</string>
+    <string name="reservation_activity_text_parking_lot_error_message">Please insert a valid parking lot!</string>
+    <string name="reservation_activity_text_key_code_error_message">Please insert a valid key code!</string>
+    <string name="reservation_activity_text_overlapping_error_message">This reservation is overlapping with another one!</string>
 </resources>

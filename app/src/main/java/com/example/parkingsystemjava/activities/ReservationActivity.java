@@ -5,10 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.parkingsystemjava.databinding.ActivityReservationBinding;
-import com.example.parkingsystemjava.entity.Reservation;
 import com.example.parkingsystemjava.listener.ListenerDateTime;
 import com.example.parkingsystemjava.mvp.contract.ParkingReservationContract;
 import com.example.parkingsystemjava.mvp.model.ParkingReservationModel;
+import com.example.parkingsystemjava.mvp.presenter.ParkingReservationPresenter;
 import com.example.parkingsystemjava.mvp.view.ParkingReservationView;
 import java.util.Calendar;
 
@@ -22,34 +22,36 @@ public class ReservationActivity extends AppCompatActivity implements ListenerDa
         super.onCreate(savedInstanceState);
         binding = ActivityReservationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        presenter = new com.example.parkingsystemjava.mvp.presenter.ParkingReservationPresenter(new ParkingReservationModel(), new ParkingReservationView(this, binding));
+        presenter = new ParkingReservationPresenter(new ParkingReservationModel(), new ParkingReservationView(this, binding));
 
         setListeners();
     }
 
     public static Intent newInstance(Context context) {
-        Intent intent = new Intent(context, ReservationActivity.class);
-        return intent;
+        return new Intent(context, ReservationActivity.class);
     }
 
     private void setListeners() {
-        binding.editTextReservationActivityEntry.setOnClickListener(view -> presenter.showDatePicker(this));
-        binding.editTextReservationActivityExit.setOnClickListener(view -> presenter.showDatePicker(this));
+        binding.editTextReservationActivityEntry.setOnClickListener(view -> presenter.showDatePicker(this, true));
+        binding.editTextReservationActivityExit.setOnClickListener(view -> presenter.showDatePicker(this, false));
         binding.buttonReservationActivitySave.setOnClickListener(view -> makeReservation());
     }
 
     private void makeReservation() {
-        Reservation reservation = new Reservation();
-        reservation.setEntryDate(binding.editTextReservationActivityEntry.getText().toString());
-        reservation.setExitDate(binding.editTextReservationActivityExit.getText().toString());
-        reservation.setKeyCode(binding.editTextReservationActivityCode.getText().toString());
-        int parkingLot = Integer.parseInt(binding.editTextReservationActivityParkingNumber.getText().toString());
-        presenter.addReservation(reservation, parkingLot);
-        finish();
+        presenter.validateAndSaveReservation(
+                binding.editTextReservationActivityEntry.getText().toString(),
+                binding.editTextReservationActivityExit.getText().toString(),
+                binding.editTextReservationActivityCode.getText().toString(),
+                binding.editTextReservationActivityParkingNumber.getText().toString());
     }
 
     @Override
-    public void setEntryExitDate(Calendar entryExitDate) {
-        presenter.setEntryExitDate(entryExitDate);
+    public void setEntryDate(Calendar entryDate) {
+        presenter.setEntryDate(entryDate);
+    }
+
+    @Override
+    public void setExitDate(Calendar exitDate) {
+        presenter.setExitDate(exitDate);
     }
 }

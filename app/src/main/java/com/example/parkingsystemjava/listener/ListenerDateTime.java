@@ -4,5 +4,6 @@ import java.io.Serializable;
 import java.util.Calendar;
 
 public interface ListenerDateTime extends Serializable {
-    void setEntryExitDate(Calendar entryExitDate);
+    void setEntryDate(Calendar entryExitDate);
+    void setExitDate(Calendar entryExitDate);
 }
