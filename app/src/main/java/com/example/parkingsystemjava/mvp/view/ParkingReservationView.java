@@ -84,21 +84,4 @@ public class ParkingReservationView extends ActivityView implements ParkingReser
         if (activity != null)
             activity.finish();
     }
-
-    @Override
-    public void showDateSelected(String date) {
-        if (binding.editTextReservationActivityEntry.getText().toString().isEmpty()) {
-            binding.editTextReservationActivityEntry.setText(date);
-        } else {
-            binding.editTextReservationActivityExit.setText(date);
-        }
-    }
-
-    @Override
-    public void showConfirmationMessage(int parkingLot) {
-        Context context = getContext();
-        if (context != null) {
-            Toast.makeText(context, context.getString(R.string.reservation_activity_text_confirmation_message, parkingLot), Toast.LENGTH_LONG).show();
-        }
-    }
 }
