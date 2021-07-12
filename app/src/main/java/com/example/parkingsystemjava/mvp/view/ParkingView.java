@@ -11,6 +11,7 @@ import com.example.parkingsystemjava.fragments.SpacesSettingDialogFragment;
 import com.example.parkingsystemjava.listener.ListenerDialogFragment;
 import com.example.parkingsystemjava.mvp.contract.ParkingContract;
 import com.example.parkingsystemjava.mvp.view.base.ActivityView;
+import com.example.parkingsystemjava.utils.Constants;
 
 public class ParkingView extends ActivityView implements ParkingContract.MainActivityView {
 
@@ -22,7 +23,7 @@ public class ParkingView extends ActivityView implements ParkingContract.MainAct
     public void showDialogFragment(ListenerDialogFragment listenerDialogFragment) {
         SpacesSettingDialogFragment dialogFragment = SpacesSettingDialogFragment.newInstance(listenerDialogFragment);
         FragmentManager fragmentManager = getFragmentManager();
-        dialogFragment.show(fragmentManager, "dialog_fragment_spaces_setting");
+        dialogFragment.show(fragmentManager, Constants.DIALOG_SPACES_SPACES_SETTING);
     }
 
     @Override

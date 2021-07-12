@@ -7,7 +7,7 @@ import java.util.HashMap;
 public class ReservationDatabase {
     private static ReservationDatabase instance = null;
     private final HashMap<Integer, ArrayList<Reservation>> reservations = new HashMap<>();
-    private String parkingLots;
+    private int parkingLots;
 
     public static ReservationDatabase getInstance() {
         if (instance == null) {
@@ -26,11 +26,15 @@ public class ReservationDatabase {
         }
     }
 
+    public String getParkingLots() {
+        return String.valueOf(parkingLots);
+    }
+
     public ArrayList<Reservation> getReservations(int parkingLot) {
         return reservations.get(parkingLot);
     }
 
     public void setParkingLots(String parkingLots) {
-        this.parkingLots = parkingLots;
+        this.parkingLots = Integer.parseInt(parkingLots);
     }
 }

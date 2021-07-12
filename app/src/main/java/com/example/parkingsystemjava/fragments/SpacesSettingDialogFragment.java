@@ -10,10 +10,9 @@ import com.example.parkingsystemjava.listener.ListenerDialogFragment;
 import com.example.parkingsystemjava.mvp.contract.ParkingSpacesContract;
 import com.example.parkingsystemjava.mvp.presenter.ParkingSpacesPresenter;
 import com.example.parkingsystemjava.mvp.view.ParkingSpacesView;
+import com.example.parkingsystemjava.utils.Constants;
 
 public class SpacesSettingDialogFragment extends DialogFragment {
-
-    private static final String LISTENER_KEY = "LISTENER_KEY";
 
     private DialogFragmentParkingSpacesSettingBinding binding;
     private ParkingSpacesContract.ParkingSpacesDialogFragmentPresenter presenter;
@@ -24,7 +23,7 @@ public class SpacesSettingDialogFragment extends DialogFragment {
         super.onViewCreated(view, savedInstanceState);
         presenter = new ParkingSpacesPresenter(new ParkingSpacesView(this));
 
-        listenerDialogFragment = (ListenerDialogFragment) getArguments().getSerializable(LISTENER_KEY);
+        listenerDialogFragment = (ListenerDialogFragment) getArguments().getSerializable(Constants.LISTENER_SPACES_SETTING_KEY);
         setListeners();
     }
 
@@ -42,7 +41,7 @@ public class SpacesSettingDialogFragment extends DialogFragment {
     public static SpacesSettingDialogFragment newInstance(ListenerDialogFragment listenerDialogFragment) {
         SpacesSettingDialogFragment spacesSettingDialogFragment = new SpacesSettingDialogFragment();
         Bundle bundle = new Bundle();
-        bundle.putSerializable(LISTENER_KEY, listenerDialogFragment);
+        bundle.putSerializable(Constants.LISTENER_SPACES_SETTING_KEY, listenerDialogFragment);
         spacesSettingDialogFragment.setArguments(bundle);
         return spacesSettingDialogFragment;
     }

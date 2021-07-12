@@ -18,8 +18,7 @@ public class ParkingDatePickerView extends FragmentView implements ParkingDatePi
         this.binding = binding;
     }
 
-    @Override
-    public void showReservationDate(ListenerDateTime listenerDateTime) {
+    private Calendar getCalendar() {
         DateReservationDialogFragment fragment = (DateReservationDialogFragment) getFragment();
         Calendar calendar = new GregorianCalendar();
         calendar.set(binding.datePickerDialogFragment.getYear(),
@@ -30,7 +29,17 @@ public class ParkingDatePickerView extends FragmentView implements ParkingDatePi
         if (fragment != null) {
             fragment.dismiss();
         }
-        listenerDateTime.setEntryExitDate(calendar);
+        return calendar;
+    }
+
+    @Override
+    public void showEntryReservationDate(ListenerDateTime listenerDateTime) {
+        listenerDateTime.setEntryDate(getCalendar());
+    }
+
+    @Override
+    public void showExitReservationDate(ListenerDateTime listenerDateTime) {
+        listenerDateTime.setExitDate(getCalendar());
     }
 
     @Override

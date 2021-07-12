@@ -18,6 +18,6 @@ public class ParkingModel implements ParkingContract.MainActivityModel {
 
     @Override
     public String getParkingLots() {
-        return parkingLotsAvailable;
+        return database.getParkingLots();
     }
 }
