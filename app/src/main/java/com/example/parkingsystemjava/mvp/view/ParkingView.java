@@ -43,4 +43,12 @@ public class ParkingView extends ActivityView implements ParkingContract.MainAct
             Toast.makeText(context, context.getString(R.string.main_activity_toast_set_parking_lots, parkingLots), Toast.LENGTH_LONG).show();
         }
     }
+
+    @Override
+    public void showDeletedOldReservationsMessage() {
+        Context context = getContext();
+        if (context != null) {
+            Toast.makeText(context, context.getString(R.string.main_activity_toast_delete_old_reservations), Toast.LENGTH_LONG).show();
+        }
+    }
 }

@@ -29,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements ListenerDialogFra
     private void setListeners() {
         binding.buttonMainActivitySelectParkingSpace.setOnClickListener(view -> presenter.onSetParkingButtonPressed(this));
         binding.buttonMainActivityReservation.setOnClickListener(view -> presenter.onReservationButtonPressed());
+        binding.buttonMainActivityDeleteOldReservations.setOnClickListener(view -> presenter.deleteOldReservations());
     }
 
     @Override

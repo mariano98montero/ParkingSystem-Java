@@ -32,4 +32,13 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/button_main_activity_select_parking_space"
         android:text="@string/main_activity_button_make_reservation"/>
+    <Button
+        android:id="@+id/button_main_activity_delete_old_reservations"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/button_main_activity_delete_reservations_red"
+        android:text="@string/delete_out_dated_reservations"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_main_activity_reservation"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -27,4 +27,10 @@ public class ParkingPresenter implements ParkingContract.MainActivityPresenter {
         model.setParkingLots(spacesAvailable);
         view.showParkingLotsAvailable(model.getParkingLots());
     }
+
+    @Override
+    public void deleteOldReservations() {
+        model.deleteOldReservations();
+        view.showDeletedOldReservationsMessage();
+    }
 }

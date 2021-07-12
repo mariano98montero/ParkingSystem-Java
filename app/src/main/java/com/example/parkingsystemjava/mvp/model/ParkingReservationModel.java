@@ -5,8 +5,8 @@ import com.example.parkingsystemjava.entity.Reservation;
 import com.example.parkingsystemjava.mvp.contract.ParkingReservationContract;
 import com.example.parkingsystemjava.utils.Constants;
 import com.example.parkingsystemjava.utils.ReservationErrorCodes;
-import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.List;
 
 public class ParkingReservationModel implements ParkingReservationContract.ParkingReservationModel {
 
@@ -29,7 +29,7 @@ public class ParkingReservationModel implements ParkingReservationContract.Parki
     }
 
     private boolean comprobateOverlapping(Reservation reservation, int parkingLot) {
-        ArrayList<Reservation> reservations = database.getReservations(parkingLot);
+        List<Reservation> reservations = database.getReservations(parkingLot);
         Calendar reservationEntryDate = reservation.getEntryDate();
         Calendar reservationExitDate = reservation.getExitDate();
         boolean isOverlapping = false;
