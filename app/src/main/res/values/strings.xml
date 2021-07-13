@@ -25,4 +25,5 @@
     <string name="reservation_activity_text_overlapping_error_message">This reservation is overlapping with another one!</string>
     <string name="delete_out_dated_reservations">Delete out-dated reservations</string>
     <string name="main_activity_toast_delete_old_reservations">Old reservations deleted!</string>
+    <string name="reservation_activity_delete_old_reservations">Old reservations deleted!</string>
 </resources>

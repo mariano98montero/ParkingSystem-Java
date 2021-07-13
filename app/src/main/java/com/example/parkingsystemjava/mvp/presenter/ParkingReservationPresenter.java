@@ -80,4 +80,10 @@ public class ParkingReservationPresenter implements ParkingReservationContract.P
             view.closeScreen();
         }
     }
+
+    @Override
+    public void deleteOldReservations() {
+        model.deleteOldReservations();
+        view.showOldReservationDeletionMessage();
+    }
 }

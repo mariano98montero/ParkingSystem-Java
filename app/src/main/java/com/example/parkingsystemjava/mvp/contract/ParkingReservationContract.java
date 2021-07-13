@@ -14,6 +14,7 @@ public interface ParkingReservationContract {
         void setExitDate(Calendar exitDate);
         boolean validateReservation(Reservation reservation, int parkingLot);
         void validateAndSaveReservation(String entryDate, String exitDate, String keyCode, String parkingLot);
+        void deleteOldReservations();
     }
 
     interface ParkingReservationView {
@@ -27,10 +28,12 @@ public interface ParkingReservationContract {
         void showKeyErrorMessage();
         void showParkingLotErrorMessage();
         void closeScreen();
+        void showOldReservationDeletionMessage();
     }
 
     interface ParkingReservationModel {
         void addReservation(Reservation reservation, int parkingLot);
         ReservationErrorCodes validateReservation(Reservation reservation, int parkingLot);
+        void deleteOldReservations();
     }
 }

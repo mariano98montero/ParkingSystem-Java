@@ -28,6 +28,11 @@ public class ParkingReservationModel implements ParkingReservationContract.Parki
         else return ReservationErrorCodes.OK;
     }
 
+    @Override
+    public void deleteOldReservations() {
+        database.deleteOldReservations();
+    }
+
     private boolean comprobateOverlapping(Reservation reservation, int parkingLot) {
         List<Reservation> reservations = database.getReservations(parkingLot);
         Calendar reservationEntryDate = reservation.getEntryDate();
