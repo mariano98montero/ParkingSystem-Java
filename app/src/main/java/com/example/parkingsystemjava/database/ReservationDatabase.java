@@ -3,10 +3,11 @@ package com.example.parkingsystemjava.database;
 import com.example.parkingsystemjava.entity.Reservation;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class ReservationDatabase {
     private static ReservationDatabase instance = null;
-    private final HashMap<Integer, ArrayList<Reservation>> reservations = new HashMap<>();
+    private final HashMap<Integer, List<Reservation>> reservations = new HashMap<>();
     private int parkingLots;
 
     public static ReservationDatabase getInstance() {
@@ -18,7 +19,7 @@ public class ReservationDatabase {
 
     public void addReservation(Reservation reservation, int parkingLot) {
         if (reservations.get(parkingLot) == null) {
-            ArrayList<Reservation> reservationsList = new ArrayList<>();
+            List<Reservation> reservationsList = new ArrayList<>();
             reservationsList.add(reservation);
             reservations.put(parkingLot, reservationsList);
         } else {
@@ -30,7 +31,7 @@ public class ReservationDatabase {
         return String.valueOf(parkingLots);
     }
 
-    public ArrayList<Reservation> getReservations(int parkingLot) {
+    public List<Reservation> getReservations(int parkingLot) {
         return reservations.get(parkingLot);
     }
 
