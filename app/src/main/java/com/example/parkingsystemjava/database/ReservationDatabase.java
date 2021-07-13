@@ -1,7 +1,9 @@
 package com.example.parkingsystemjava.database;
 
 import com.example.parkingsystemjava.entity.Reservation;
+import com.example.parkingsystemjava.utils.Constants;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
 
@@ -37,5 +39,21 @@ public class ReservationDatabase {
 
     public void setParkingLots(String parkingLots) {
         this.parkingLots = Integer.parseInt(parkingLots);
+    }
+
+    public void deleteOldReservations() {
+        Calendar today = Calendar.getInstance();
+        int parkingLots = Integer.parseInt(this.getParkingLots());
+        List<Reservation> reservations = new ArrayList<>();
+        for (int indexParkingLots = Constants.ZERO; indexParkingLots <= parkingLots; indexParkingLots++) {
+            if (this.getReservations(indexParkingLots) != null) {
+                reservations.addAll(this.getReservations(indexParkingLots));
+                for (int indexReservations = Constants.ZERO; indexReservations < reservations.size(); indexReservations++) {
+                    if (reservations.get(indexReservations).getExitDate().before(today)) {
+                        reservations.remove(reservations.get(indexReservations));
+                    }
+                }
+            }
+        }
     }
 }

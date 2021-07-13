@@ -82,4 +82,9 @@ public class ParkingReservationView extends ActivityView implements ParkingReser
         if (activity != null)
             activity.finish();
     }
+
+    @Override
+    public void showOldReservationDeletionMessage() {
+        showMessage(R.string.reservation_activity_delete_old_reservations);
+    }
 }

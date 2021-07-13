@@ -38,6 +38,7 @@ public class ReservationActivity extends AppCompatActivity implements ListenerDa
     }
 
     private void makeReservation() {
+        presenter.deleteOldReservations();
         presenter.validateAndSaveReservation(
                 binding.editTextReservationActivityEntry.getText().toString(),
                 binding.editTextReservationActivityExit.getText().toString(),
