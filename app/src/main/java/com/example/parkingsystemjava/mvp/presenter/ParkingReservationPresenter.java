@@ -43,32 +43,38 @@ public class ParkingReservationPresenter implements ParkingReservationContract.P
     @Override
     public boolean validateReservation(Reservation reservation, int parkingLot) {
         ReservationErrorCodes reservationCode = model.validateReservation(reservation, parkingLot);
+        Boolean validation = false;
         switch (reservationCode) {
             case WRONG_PARKING_LOT:
                 view.showParkingLotErrorMessage();
-                return false;
+                validation = false;
+                break;
             case RESERVATION_OVERLAP:
                 view.showOverlapMessage();
-                return false;
+                validation = false;
+                break;
             case MISSING_ENTRY:
                 view.showEntryErrorMessage();
-                return false;
+                validation = false;
+                break;
             case MISSING_EXIT:
                 view.showExitErrorMessage();
-                return false;
+                validation = false;
+                break;
             case MISSING_KEYCODE:
                 view.showKeyErrorMessage();
-                return false;
+                validation = false;
+                break;
             case OK:
                 view.showConfirmationMessage();
-                return true;
+                validation = true;
+                break;
         }
-        return false;
+        return validation;
     }
 
     @Override
-    public void validateAndSaveReservation(String entryDate, String exitDate, String keyCode, String parkingLot) {
-        Reservation reservation = new Reservation(entryDate, exitDate, keyCode);
+    public void validateAndSaveReservation(Reservation reservation, String parkingLot) {
         int parkingLotInt;
         if (!parkingLot.isEmpty()) {
             parkingLotInt = Integer.parseInt(parkingLot);

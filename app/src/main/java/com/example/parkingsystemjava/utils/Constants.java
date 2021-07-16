@@ -1,7 +1,7 @@
 package com.example.parkingsystemjava.utils;
 
 public class Constants {
-    public static final String DATE_FORMAT = "dd-MMM-yyyy a hh: mm";
+    public static final String DATE_FORMAT = "dd-MMM-yyyy a hh:mm";
     public static final String EMPTY_STRING = "";
     public static final String DIALOG_FRAGMENT_ENTRY_DATE_PICKER = "DIALOG_FRAGMENT_ENTRY_DATE_PICKER";
     public static final String DIALOG_SPACES_SPACES_SETTING = "DIALOG_SPACES_SPACES_SETTING";

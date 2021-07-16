@@ -10,7 +10,11 @@ import java.util.List;
 
 public class ParkingReservationModel implements ParkingReservationContract.ParkingReservationModel {
 
-    private final ReservationDatabase database = ReservationDatabase.getInstance();
+    private ReservationDatabase database = null;
+
+    public ParkingReservationModel(ReservationDatabase database) {
+        this.database = database;
+    }
 
     @Override
     public void addReservation(Reservation reservation, int parkingLot) {
@@ -24,7 +28,7 @@ public class ParkingReservationModel implements ParkingReservationContract.Parki
         if (reservation.getKeyCode().isEmpty()) return ReservationErrorCodes.MISSING_KEYCODE;
         if (parkingLot < Constants.ZERO || parkingLot > Integer.parseInt(database.getParkingLots()))
             return ReservationErrorCodes.WRONG_PARKING_LOT;
-        if (comprobateOverlapping(reservation, parkingLot)) return ReservationErrorCodes.RESERVATION_OVERLAP;
+        if (isOverlapping(reservation, parkingLot)) return ReservationErrorCodes.RESERVATION_OVERLAP;
         else return ReservationErrorCodes.OK;
     }
 
@@ -33,7 +37,7 @@ public class ParkingReservationModel implements ParkingReservationContract.Parki
         database.deleteOldReservations();
     }
 
-    private boolean comprobateOverlapping(Reservation reservation, int parkingLot) {
+    private boolean isOverlapping(Reservation reservation, int parkingLot) {
         List<Reservation> reservations = database.getReservations(parkingLot);
         Calendar reservationEntryDate = reservation.getEntryDate();
         Calendar reservationExitDate = reservation.getExitDate();
@@ -49,6 +53,9 @@ public class ParkingReservationModel implements ParkingReservationContract.Parki
                     isOverlapping = true;
                 } else if (reservationEntryDate.after(reservations.get(i).getEntryDate()) &&
                         reservationExitDate.before(reservations.get(i).getExitDate())) {
+                    isOverlapping = true;
+                } else if (reservationEntryDate.equals(reservations.get(i).getEntryDate()) &&
+                        reservationExitDate.equals(reservations.get(i).getExitDate())) {
                     isOverlapping = true;
                 }
                 i++;
