@@ -4,7 +4,9 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.parkingsystemjava.database.ReservationDatabase;
 import com.example.parkingsystemjava.databinding.ActivityReservationBinding;
+import com.example.parkingsystemjava.entity.Reservation;
 import com.example.parkingsystemjava.listener.ListenerDateTime;
 import com.example.parkingsystemjava.mvp.contract.ParkingReservationContract;
 import com.example.parkingsystemjava.mvp.model.ParkingReservationModel;
@@ -22,7 +24,7 @@ public class ReservationActivity extends AppCompatActivity implements ListenerDa
         super.onCreate(savedInstanceState);
         binding = ActivityReservationBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        presenter = new ParkingReservationPresenter(new ParkingReservationModel(), new ParkingReservationView(this, binding));
+        presenter = new ParkingReservationPresenter(new ParkingReservationModel(ReservationDatabase.getInstance()), new ParkingReservationView(this, binding));
 
         setListeners();
     }
@@ -40,9 +42,10 @@ public class ReservationActivity extends AppCompatActivity implements ListenerDa
     private void makeReservation() {
         presenter.deleteOldReservations();
         presenter.validateAndSaveReservation(
-                binding.editTextReservationActivityEntry.getText().toString(),
-                binding.editTextReservationActivityExit.getText().toString(),
-                binding.editTextReservationActivityCode.getText().toString(),
+                new Reservation(
+                        binding.editTextReservationActivityEntry.getText().toString(),
+                        binding.editTextReservationActivityExit.getText().toString(),
+                        binding.editTextReservationActivityCode.getText().toString()),
                 binding.editTextReservationActivityParkingNumber.getText().toString());
     }
 

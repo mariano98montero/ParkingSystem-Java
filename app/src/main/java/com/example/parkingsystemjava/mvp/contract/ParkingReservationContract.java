@@ -13,7 +13,7 @@ public interface ParkingReservationContract {
         void setEntryDate(Calendar entryDate);
         void setExitDate(Calendar exitDate);
         boolean validateReservation(Reservation reservation, int parkingLot);
-        void validateAndSaveReservation(String entryDate, String exitDate, String keyCode, String parkingLot);
+        void validateAndSaveReservation(Reservation reservation, String parkingLot);
         void deleteOldReservations();
     }
 
